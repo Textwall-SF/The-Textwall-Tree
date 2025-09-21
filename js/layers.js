@@ -47,6 +47,18 @@ addLayer("c", {
 				return player.points.add(1).pow(0.45)
 			},
 			effectDisplay() {return 'x' + format(upgradeEffect(this.layer, this.id))}
-		}
+		},
+		21: {
+		    title: "U+0080 to U+FFFF",
+			description: "YOU BOOST THE ENTIRE UNICODE??? Also, x5 point gain.",
+			cost: new Decimal(100),
+			unlocked() {return (hasUpgrade('c', 13))},
+		},
+		22: {
+		    title: "20x10 chunk",
+			description: "A chunk is a 20x10. Boost points by x2.",
+			cost: new Decimal(500),
+			unlocked() {return (hasUpgrade('c', 21))},
+		},
 	}
 })
