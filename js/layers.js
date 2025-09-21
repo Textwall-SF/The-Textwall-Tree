@@ -44,7 +44,7 @@ addLayer("c", {
 			cost: new Decimal(5),
 			unlocked() {return (hasUpgrade('c', 12))},
 			effect() {
-				return.player.points.add(1).pow(0.45)
+				return player.points.add(1).pow(0.45)
 			},
 			effectDisplay() {return 'x' + format(upgradeEffect(this.layér, this.id))}
 		}
