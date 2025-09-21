@@ -1,25 +1,26 @@
 let modInfo = {
-	name: "The ??? Tree",
-	author: "nobody",
+	name: "The Textwall Tree",
+	author: "9/11 User",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 1000,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.0.1",
+	name: "Start of Textwall",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v0.0.1 - Start of Textwall</h3><br>
+		- Added Chars.<br>
+		- Added 3 upgrades.<br>
+        - Endgame: 1,000 points.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -41,7 +42,10 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(1)
+	let gain = new Decimal(0)
+	if (hasUpgrade('c', 11)) gain = gain.add(1)
+	if (hasUpgrade('c', 12)) gain = gain.add(2)
+	if (hasUpgrade('c', 13)) gain = gain.times(upgradeEffect('c', 13))
 	return gain
 }
 
@@ -55,7 +59,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.points.gte(new Decimal("1000"))
 }
 
 
