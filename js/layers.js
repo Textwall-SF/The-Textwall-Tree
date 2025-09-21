@@ -46,7 +46,7 @@ addLayer("c", {
 			effect() {
 				return player.points.add(1).pow(0.45)
 			},
-			effectDisplay() {return 'x' + format(upgradeEffect(this.layér, this.id))}
+			effectDisplay() {return 'x' + format(upgradeEffect(this.layer, this.id))}
 		}
 	}
 })
