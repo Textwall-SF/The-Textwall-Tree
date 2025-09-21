@@ -30,7 +30,23 @@ addLayer("c", {
 		11: {
 			title: "Start.",
 			description: "Gain 1 point.",
-			cost: new Decimal("10^^95")
+			cost: new Decimal(1)
+		},
+		12: {
+			title: `- and '`,
+			description: "New chars... +2 point gain",
+			cost: new Decimal(2),
+			unlocked() {return (hasUpgrade('c', 11))}
+		},
+		13: {
+		    title: "_ and .",
+			description: "Some basic system. Boost points by points. ^0.45",
+			cost: new Decimal(5),
+			unlocked() {return (hasUpgrade('c', 12))},
+			effect() {
+				return.player.points.add(1).pow(0.45)
+			},
+			effectDisplay() {return 'x' + format(upgradeEffect(this.layér, this.id))}
 		}
 	}
 })
