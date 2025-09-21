@@ -12,11 +12,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.1",
-	name: "Start of Textwall",
+	num: "0.0.1.1",
+	name: "Uni 1",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+    <h3>v0.0.1.1 - Uni 1</h3><br>
+		- Added 2 upgrades.<br>
+        - Endgame: 100,000,000 points.
 	<h3>v0.0.1 - Start of Textwall</h3><br>
 		- Added Chars.<br>
 		- Added 3 upgrades.<br>
@@ -46,6 +49,8 @@ function getPointGen() {
 	if (hasUpgrade('c', 11)) gain = gain.add(1)
 	if (hasUpgrade('c', 12)) gain = gain.add(2)
 	if (hasUpgrade('c', 13)) gain = gain.times(upgradeEffect('c', 13))
+	if (hasUpgrade('c', 21)) gain = gain.times(5)
+	if (hasUpgrade('c', 22)) gain = gain.times(2)
 	return gain
 }
 
@@ -59,7 +64,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("1000"))
+	return player.points.gte(new Decimal("100000000"))
 }
 
 
