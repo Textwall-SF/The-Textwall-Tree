@@ -24,9 +24,13 @@ addLayer("c", {
     hotkeys: [
         {key: "c", description: "C: Reset for chars", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
 
 	upgrades: {
 		11: {
-			title: 
+			title: "Start.",
+			description: "Gain 1 point.",
+			cost: new Decimal("10^^95")
+		}
+	}
 })
