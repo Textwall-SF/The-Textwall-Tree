@@ -25,4 +25,8 @@ addLayer("c", {
         {key: "c", description: "C: Reset for chars", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
+
+	upgrades: {
+		11: {
+			title: 
 })
